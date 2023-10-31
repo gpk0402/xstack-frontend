@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="header1">
+    <mat-toolbar>
+      <button mat-icon-button class="example-icon" (click)="backToProfile()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span>Back to Profile</span>
+      <span class="spacer"></span>
+      <span>{{traineeProfile.userName}}</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="body">
+    <div class="center-content">
+      <div class="header">
+        <h1>Trainee Updation</h1>
+        <h3>{{traineeProfile.userName}}</h3>
+      </div>
+      <div class="registration-form">
+        <form (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
+            <mat-label>Enter Firstname</mat-label>
+            <input matInput type="text" id="firstName" name="firstName" [(ngModel)]="traineeProfile.firstName">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
+            <mat-label>Enter Lastname</mat-label>
+            <input matInput type="text" id="lastName" name="lastName" [(ngModel)]="traineeProfile.lastName">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-icon matPrefix class="my-icon">home</mat-icon>
+            <mat-label>Enter your full address</mat-label>
+            <textarea matInput id="address" name="address" [(ngModel)]="traineeProfile.address"></textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-icon matPrefix class="my-icon">email</mat-icon>
+            <mat-label>Enter your email</mat-label>
+            <input type="email" matInput id="email" name="email" [(ngModel)]="traineeProfile.email">
+          </mat-form-field>
+          <mat-slide-toggle [(ngModel)]="traineeProfile.status" [ngModelOptions]="{standalone: true}">Status</mat-slide-toggle>
+          <button mat-raised-button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<app-homepage></app-homepage>
+<div class="container">
+  <div class="header">
+    <h1>Trainee Registration</h1>
+  </div>
+  <div class="body">
+    <div class="registration-form">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
+          <mat-label>Enter Firstname</mat-label>
+          <input matInput formControlName="firstName" id="firstName" name="firstName">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
+          <mat-label>Enter Lastname</mat-label>
+          <input matInput formControlName="lastName" id="lastName" name="lastName">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Date of Birth (optional)</mat-label>
+          <input matInput [matDatepicker]="datePicker" formControlName="dateOfBirth" id="dateOfBirth" name="dateOfBirth">
+          <mat-datepicker-toggle [for]="datePicker" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #datePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-icon matPrefix class="my-icon">home</mat-icon>
+          <mat-label>Enter your full address</mat-label>
+          <textarea matInput formControlName="address" id="address" Name="address"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matPrefix class="my-icon">email</mat-icon>
+          <mat-label>Enter Email</mat-label>
+          <input matInput formControlName="email" id="email" name="email">
+        </mat-form-field>
+        <button mat-raised-button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

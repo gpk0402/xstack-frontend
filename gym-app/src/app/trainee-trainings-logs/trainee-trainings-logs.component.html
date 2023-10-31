@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="header">
+    <mat-toolbar>
+      <button mat-icon-button class="example-icon">
+        <mat-icon>fitbit</mat-icon>
+      </button>
+      <span>GYM-PORTAL</span>
+      <span class="spacer"></span>
+      <div class="menu-items">
+        <button mat-raised-button (click)="backToProfile()" routerLinkActive="active">Back to Profile</button>&nbsp;&nbsp;&nbsp;
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="search-feilds">
+    <form [formGroup]="traineeTrainingsForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field>
+        <mat-icon matPrefix class="my-icon">fitness_center</mat-icon>
+        <mat-label>please select trainer</mat-label>
+        <mat-select id="traineeName" formControlName="trainerName">
+          <mat-option *ngFor="let trainer of trainerList" [value]="trainer.userName">
+            {{trainer.firstName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-slide-toggle class="toggle" formControlName="trainerToggle"></mat-slide-toggle>&nbsp;&nbsp;&nbsp;
+
+      <mat-form-field>
+        <mat-icon matPrefix class="my-icon">fitness_center</mat-icon>
+        <mat-label>please select specialization</mat-label>
+        <mat-select class="form-control" id="trainingType" name="trainingType" formControlName="trainingType">
+          <!--                [(ngModel)]="trainer.trainingType" name="trainingType">-->
+          <mat-option *ngFor="let specialization of specializations" [value]="specialization.value">
+            {{specialization.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-slide-toggle class="toggle" formControlName="trainingTypeToggle"></mat-slide-toggle>&nbsp;&nbsp;&nbsp;
+
+
+      <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input formGroupName="range" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date">
+          <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <mat-slide-toggle class="toggle" formControlName="dateToggle"></mat-slide-toggle>&nbsp;&nbsp;&nbsp;
+
+
+      <button mat-raised-button color="primary" type="submit">search</button>
+    </form>
+  </div>
+
+
+  <!--  <div *ngIf="trainingData.length>0">-->
+  <div class="table-container">
+    <h2 class="mat-h2">Training Data of Trainee</h2>
+    <table mat-table [dataSource]="trainingData" class="mat-elevation-z8">
+      <ng-container matColumnDef="traineeUserName">
+        <th mat-header-cell *matHeaderCellDef> Trainee Name </th>
+        <td mat-cell *matCellDef="let element"> {{ element.traineeName }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="trainerUsername">
+        <th mat-header-cell *matHeaderCellDef> Trainer Name </th>
+        <td mat-cell *matCellDef="let element"> {{ element.trainerName }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="trainingDate">
+        <th mat-header-cell *matHeaderCellDef> Training Date </th>
+        <td mat-cell *matCellDef="let element"> {{ element.trainingDate | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="trainingDuration">
+        <th mat-header-cell *matHeaderCellDef> Training Duration </th>
+        <td mat-cell *matCellDef="let element"> {{ element.trainingDuration }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="trainingName">
+        <th mat-header-cell *matHeaderCellDef> Training Name </th>
+        <td mat-cell *matCellDef="let element"> {{ element.trainingName }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="trainingType">
+        <th mat-header-cell *matHeaderCellDef>Training Type</th>
+        <td mat-cell *matCellDef="let element"> {{ element.trainingType }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

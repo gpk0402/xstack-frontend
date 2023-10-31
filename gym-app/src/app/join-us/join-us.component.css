@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: Montserrat;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 78px;
+  color: #171A1FFF;
+}
+
+.register-card {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 5%;
+}
+
+.trainer-card,
+.student-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.example-card {
+  width: 400px;
+  background-color: #9cebe5; /* Lighter version of the current background color */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+}
+
+.join-button {
+  margin: 0 auto;
+  background-color: #f7fcfc; /* Lighter version of the current background color */
+  color: black;
+}
+
+.image img {
+  height: 235px;
+  width: 400px;
+}
+
+.mat-card-title,
+.mat-card-subtitle {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.example-card mat-card-title {
+  font-size: 35px;
+  margin-bottom: 10px;
+}

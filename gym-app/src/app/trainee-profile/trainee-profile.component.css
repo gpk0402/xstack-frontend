@@ -1,0 +1,154 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+
+.menu-items button {
+  background-color: white;
+  color: black;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: #d6e9f1;
+  color: black;
+}
+
+.my-account {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.student-profile {
+  display: flex;
+  flex-direction: column; /* Change to column */
+  margin-top: 30px;
+  margin-bottom: 5%;
+}
+
+.student-profile button {
+  background-color: #d6e9f1;
+  color: black;
+}
+
+.my-trainings {
+  display: flex;
+  flex-direction: column; /* Change to column */
+  padding-left: 12%;
+  padding-right: 12%;
+  align-items: center;
+  flex: 2;
+}
+
+.pfp-status {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3%;
+  /*gap: 25px;*/
+}
+
+.student-status {
+  margin-left: 25px;
+}
+
+.student-status h4 {
+  margin-bottom: 1px;
+}
+
+.student-status h5 {
+  color: forestgreen;
+}
+
+.my-account,
+.my-profile,
+.my-trainees {
+  display: flex;
+  flex: 1;
+}
+
+.my-profile,
+.my-trainees {
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+  margin-left: 5%;
+}
+
+.my-trainees-header {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.my-trainees {
+  margin-left: 0px;
+}
+
+.my-trainees-header h3 {
+  margin-right: 45px;
+}
+
+.my-trainings button {
+  width: 150px;
+  height: 42px;
+}
+
+h1,
+h4,
+h2 {
+  font-weight: bold;
+  color: black;
+}
+
+.my-trainees-header button {
+  margin-left: 150px;
+}
+
+h3 {
+  /*font-weight: bold;*/
+  color: grey;
+  margin-bottom: 1px;
+}
+
+.my-trainees-header h3 {
+  font-weight: bold;
+  color: black;
+}
+
+.trainers-table {
+  width: 60%;
+}
+
+.trainers-table mat-row,
+.trainers-table mat-cell {
+  height: 18px;
+  font-size: 12px;
+}
+
+.trainers-table {
+  width: 70%;
+}
+
+.my-trainings p {
+  margin-bottom: 50px;
+}
+
+/* Adjust the height and font size of mat-row and mat-cell as needed */
+.trainers-table mat-row,
+.trainers-table mat-cell {
+  height: 30px; /* Adjust the height to make it readable */
+  font-size: 14px; /* Adjust the font size to make it more legible */
+}
+
+/* You can also add additional styles as needed */
+.delete-profile button {
+  transform: translate(300%, 350%);
+}

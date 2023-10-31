@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  justify-content: center; /* Center the content vertically */
+}
+
+.header {
+  text-align: center; /* Center the text within the header */
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  margin-top: 10px; /* Add top margin to center the header */
+}
+
+h3 {
+  font-weight: lighter;
+  color: grey;
+  margin: 0; /* Remove the default margin */
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Center the form horizontally */
+  width: 100%;
+}
+
+.registration-form {
+  text-align: center; /* Center the form elements horizontally */
+  margin-top: 10px;
+  width: 100%;
+}
+
+.registration-form mat-form-field {
+  width: 100%; /* Fill the available width */
+  margin-bottom: 20px; /* Add some vertical spacing between form fields */
+}
+
+.registration-form mat-icon {
+  color: #a5d8ee;
+}
+
+.registration-form button {
+  background-color: #d6e9f1;
+  color: black;
+  width: 100%;
+}

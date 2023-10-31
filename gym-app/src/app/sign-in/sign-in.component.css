@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100vh;
+  margin-top: -50px;
+}
+
+.header1 {
+  text-align: center;
+  padding: 0 20px; /* Add left and right padding to center the text */
+}
+
+
+
+.my-icon {
+  color: #a5d8ee;
+}
+
+.mat-radio-button .mat-radio-inner-circle {
+  background-color: #060606;
+}
+
+.login-form {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form mat-form-field {
+  width: 95%;
+}
+
+.login-form button {
+  background-color: #060606;
+  color: white;
+  flex-grow: 1;
+  width: 95%;
+  margin: 0;
+}
+
+.login-form mat-icon {
+  color: #a5d8ee;
+}
+
+h3 {
+  font-weight: bold;
+  color: black;
+  margin: 0;
+  font-size: 25px;
+}
+
+h5 {
+  font-weight: lighter;
+  color: grey;
+  margin: 0;
+  font-size: 15px;
+  margin-top: 3px;
+}

@@ -1,0 +1,23 @@
+.success-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0078C2; /* Aqua color */
+    margin-bottom: 10px;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #8453D2; /* Iris color */
+    margin-right: 5px;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.close-button {
+    background-color: #00FFF0; /* Mint color */
+    color: white;
+}

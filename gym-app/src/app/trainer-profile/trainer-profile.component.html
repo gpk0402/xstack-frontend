@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="header">
+    <mat-toolbar>
+      <button mat-icon-button class="example-icon">
+        <mat-icon>fitbit</mat-icon>
+      </button>
+      <span>GYM-PORTAL</span>
+      <span class="spacer"></span>
+      <div class="menu-items">
+        <button mat-raised-button (click)="addTraining()" routerLinkActive="active">Add Training</button>&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button (click)="viewTrainings()" routerLinkActive="active">View Trainings</button>&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button routerLink="" routerLinkActive="active">Sign Out</button>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="center-content">
+    <div class="Trainer Profile">
+      <h4>Trainer Profile</h4>
+      <div class="pfp-status">
+        <div class="student-status">
+          <h4>Status</h4>
+          <div *ngIf="trainerProfile.status; then active else inactive"></div>
+          <ng-template #active>
+            <h5 style="color: green;">Active</h5>
+          </ng-template>
+          <ng-template #inactive>
+            <h5 style="color: red;">InActive</h5>
+          </ng-template>
+        </div>
+      </div>
+      <div class="student-details">
+        <h3>First Name</h3>
+        <h5>{{trainerProfile.firstName}}</h5>
+        <h3>Last Name</h3>
+        <h5>{{trainerProfile.lastName}}</h5>
+        <h3>User Name</h3>
+        <h5>{{trainerProfile.userName}}</h5>
+        <h3>Specialization</h3>
+        <h5>{{trainerProfile.specialization}}</h5>
+        <h3>Email</h3>
+        <h5>{{trainerProfile.email}}</h5>
+        <div>
+          <button mat-raised-button color="primary" (click)="updateTrainer()">Edit profile</button>&nbsp;&nbsp;
+          <button mat-raised-button color="accent" (click)="updatePassword()">Change Password</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-trainers">
+      <div class="my-trainers-header">
+        <h2>My Trainees</h2>
+      </div>
+      <div class="trainers-table">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Index Column -->
+          <ng-container matColumnDef="index">
+            <mat-header-cell *matHeaderCellDef class="custom-header-cell">S.No</mat-header-cell>
+            <mat-cell *matCellDef="let i = index" class="custom-cell"> {{ i + 1 }} </mat-cell>
+          </ng-container>
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="username">
+            <mat-header-cell *matHeaderCellDef class="custom-header-cell"> Username </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="custom-cell"> {{ element.username }} </mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="firstname">
+            <mat-header-cell *matHeaderCellDef class="custom-header-cell"> Firstname </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="custom-cell"> {{ element.firstname }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="lastname">
+            <mat-header-cell *matHeaderCellDef class="custom-header-cell"> Lastname </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="custom-cell"> {{ element.lastname }} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="['index', 'username', 'firstname', 'lastname']"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: ['index', 'username', 'firstname', 'lastname']"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+</div>

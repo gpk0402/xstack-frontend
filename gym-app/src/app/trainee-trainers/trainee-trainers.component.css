@@ -1,0 +1,46 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  text-align: center;
+  background: white; /* Background color for the header */
+  padding: 20px; /* Adjust the padding as needed */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+.menu-items button{
+  background-color: white;
+  color: black;
+}
+.spacer{
+  flex: 1 1 auto;
+}
+mat-toolbar{
+  background-color: #d6e9f1;
+  color: black;
+}
+
+/* Style for the Save List button */
+.button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.button-container button {
+  background-color: #d6e9f1;
+  color:black;
+  padding: 10px 20px; /* Adjust the button size as needed */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button-container button:hover {
+  background: #d6e9f1; /* Background color on hover */
+  color: black; /* Text color on hover */
+}

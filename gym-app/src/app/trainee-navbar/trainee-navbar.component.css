@@ -1,0 +1,11 @@
+.menu-items button{
+  background-color: white;
+  color: black;
+}
+.spacer{
+  flex: 1 1 auto;
+}
+mat-toolbar{
+  background-color: #d6e9f1;
+  color: black;
+}
