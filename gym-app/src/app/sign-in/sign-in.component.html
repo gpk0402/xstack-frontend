@@ -1,48 +1,3 @@
-<!-- <app-homepage></app-homepage>
-<div class="container">
-  <div class="content">
-    <div class="inside-content">
-    <div class="header">
-      <h3>Log In</h3>
-    </div>
-    <div class="login-form">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field>
-          <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
-          <mat-label>Enter Username</mat-label>
-          <input matInput type="text" name="username" formControlName="username"> -->
-          <!--        <div *ngIf="loginForm.username.touched && loginForm.username.invalid">-->
-          <!--          <div *ngIf="loginForm.username.errors?.required "> user name is required...</div>-->
-          <!--        </div>-->
-        <!-- </mat-form-field>
-
-
-        <mat-form-field>
-          <mat-icon matPrefix class="my-icon">lock</mat-icon>
-          <mat-label>Enter Password</mat-label>
-          <input matInput type="password"
-                 name="password"
-                 formControlName="password"> -->
-          <!--        <div *ngIf="password.touched && password.invalid">-->
-          <!--          <div *ngIf="password.errors?.required "> password is required...</div>-->
-          <!--        </div>-->
-        <!-- </mat-form-field>
-
-        <mat-radio-group aria-label="Type of User" [(ngModel)]="selectedUserType" [ngModelOptions]="{standalone: true}">
-          <mat-radio-button value="trainee">Trainee</mat-radio-button>
-          <mat-radio-button value="trainer">Trainer</mat-radio-button>
-        </mat-radio-group>
-
-
-        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">SignIn</button>
-      </form>
-    </div>
-  </div>
-  </div>
-
-
-</div> -->
-
 <app-homepage></app-homepage>
 <div class="container">
   <div class="content">
@@ -65,8 +20,8 @@
           </mat-form-field>
           
           <mat-radio-group aria-label="Type of User" [(ngModel)]="selectedUserType" [ngModelOptions]="{standalone: true}">
-            <mat-radio-button value="trainee" color="primary">Trainee</mat-radio-button>
-            <mat-radio-button value="trainer" color="primary">Trainer</mat-radio-button>
+            <mat-radio-button value="trainee" color="accent">Trainee</mat-radio-button>
+            <mat-radio-button value="trainer" color="accent">Trainer</mat-radio-button>
           </mat-radio-group>
           
           <button mat-raised-button color="night" type="submit" [disabled]="loginForm.invalid">Sign In</button>

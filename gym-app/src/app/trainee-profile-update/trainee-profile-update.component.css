@@ -5,7 +5,7 @@
 }
 
 .header1 {
-  background-color: #d6e9f1;
+  background-color: #7db9b5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,12 +70,12 @@
 }
 
 .registration-form button {
-  background-color: #d6e9f1;
+  background-color: #7db9b5;
   color: black;
   margin-top: 20px;
   width: 100%;
 }
 
 mat-slide-toggle {
-  color: #d6e9f1;
+  color: #7db9b5;
 }

@@ -1,8 +1,9 @@
 .custom-toolbar {
-  position: fixed;
+  /* position: static; */
+  margin-top: 20px;
   bottom: 0;
-  left: 0; /* Add left: 0 to keep the footer at the left edge */
-  right: 0; /* Add right: 0 to keep the footer at the right edge */
+  left: 0;
+  right: 0;
   z-index: 1000;
   display: flex;
   flex-direction: row;

@@ -34,7 +34,7 @@ h1 {
 
 .example-card {
   width: 400px;
-  background-color: #9cebe5; /* Lighter version of the current background color */
+  background-color: #7db9b5; /* Lighter version of the current background color */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

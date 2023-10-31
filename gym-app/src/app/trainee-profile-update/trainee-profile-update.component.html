@@ -4,17 +4,17 @@
       <button mat-icon-button class="example-icon" (click)="backToProfile()">
         <mat-icon>arrow_back</mat-icon>
       </button>
-      <span>Back to Profile</span>
+      <span>My Profile</span>
       <span class="spacer"></span>
-      <span>{{traineeProfile.userName}}</span>
+      <!-- <span>{{traineeProfile.userName}}</span> -->
     </mat-toolbar>
     <router-outlet></router-outlet>
   </div>
   <div class="body">
     <div class="center-content">
       <div class="header">
-        <h1>Trainee Updation</h1>
-        <h3>{{traineeProfile.userName}}</h3>
+        <h1>Edit Details</h1>
+        <!-- <h3>{{traineeProfile.userName}}</h3> -->
       </div>
       <div class="registration-form">
         <form (ngSubmit)="onSubmit()">

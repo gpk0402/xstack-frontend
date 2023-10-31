@@ -4,9 +4,9 @@
 }
 .header {
   text-align: center;
-  background: white; /* Background color for the header */
-  padding: 20px; /* Adjust the padding as needed */
-  border-radius: 5px; /* Rounded corners */
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .header h3 {
@@ -21,26 +21,25 @@
   flex: 1 1 auto;
 }
 mat-toolbar{
-  background-color: #d6e9f1;
+  background-color: #7db9b5;
   color: black;
 }
 
-/* Style for the Save List button */
 .button-container {
   text-align: center;
   margin: 20px 0;
 }
 
 .button-container button {
-  background-color: #d6e9f1;
+  background-color: #7db9b5;
   color:black;
-  padding: 10px 20px; /* Adjust the button size as needed */
-  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .button-container button:hover {
-  background: #d6e9f1; /* Background color on hover */
-  color: black; /* Text color on hover */
+  background: #7db9b5;
+  color: black;
 }

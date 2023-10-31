@@ -1,14 +1,14 @@
   <div class="header">
     <mat-toolbar class="custom-toolbar">
-      <button mat-icon-button class="example-icon">
+      <button mat-icon-button class="example-icon" routerLink="/" routerLinkActive="active">
         <mat-icon>fitbit</mat-icon>
+        GYM PORTAL
       </button>
-      <span>GYM-PORTAL</span>
       <span class="spacer"></span>
       <div class="menu-items">
-        <button mat-raised-button routerLink="/" routerLinkActive="active">Home</button>&nbsp;&nbsp;&nbsp;
+        <!-- <button mat-raised-button routerLink="/" routerLinkActive="active">Home</button>&nbsp;&nbsp;&nbsp; -->
         <button mat-raised-button routerLink="/signIn" routerLinkActive="active">Log In</button>&nbsp;&nbsp;&nbsp;
-        <button mat-raised-button routerLink="/join-us" routerLinkActive="active">Join Us</button>
+        <button mat-raised-button routerLink="/join-us" routerLinkActive="active">Join Now</button>
       </div>
     </mat-toolbar>
     <router-outlet></router-outlet>

@@ -51,6 +51,7 @@ export class TrainerProfileComponent {
     }
 
   updatePassword() {
+    console.log("we are inside update password component " + this.trainerProfile);
     this.router.navigate(['update-password'], { state: { username: this.trainerProfile.userName } });
   }
 

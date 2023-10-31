@@ -1,78 +1,76 @@
 <div class="container">
   <div class="header">
-  <mat-toolbar>
-    <button mat-icon-button class="example-icon">
-      <mat-icon>fitbit</mat-icon>
-    </button>
-    <span>GYM-PORTAL</span>
-    <span class="spacer"></span>
-    <div class="menu-items">
-      <button mat-raised-button (click)="viewTraining()" routerLinkActive="active">My Trainings</button>&nbsp;&nbsp;&nbsp;
-      <button mat-raised-button routerLink="" routerLinkActive="active">Sign Out</button>
-    </div>
-  </mat-toolbar>
-  <router-outlet></router-outlet>
-</div>
-  <div class="student-profile">
-    <div class="my-profile">
-      <h4>Trainee Profile</h4>
-      <div class="pfp-status">
-
-        <div class="student-status">
-          <h4>Status</h4>
-          <div *ngIf="traineeProfile.status==false; then inactive else active"></div>
-          <ng-template #active>
-            <h5 style="color: green;">Active</h5>
-          </ng-template>
-          <ng-template #inactive>
-            <h5 style="color: red;">InActive</h5>
-          </ng-template>
-        </div>
+    <mat-toolbar class="custom-toolbar" routerLink="/" routerLinkActive="active">
+      <button mat-icon-button class="example-icon">
+        <mat-icon>fitbit</mat-icon>
+      </button>
+      <span>GYM-PORTAL</span>
+      <span class="spacer"></span>
+      <div class="menu-items">
+        <button mat-raised-button (click)="viewTraining()" routerLinkActive="active">My Trainings</button>&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button routerLink="" routerLinkActive="active">Sign Out</button>
       </div>
-      <div class="student-details">
-        <h3>First Name </h3>
-        <h5>{{traineeProfile.firstName}}</h5>
-        <h3>Last Name</h3>
-        <h5>{{traineeProfile.lastName}}</h5>
-        <h3>User Name</h3>
-        <h5>{{traineeProfile.userName}}</h5>
-        <h3>Date of Birth</h3>
-        <h5>{{traineeProfile.dateOfBirth | date}}</h5>
-        <h3>Address</h3>
-        <h5>{{traineeProfile.address}}</h5>
-        <h3>Email</h3>
-        <h5>{{traineeProfile.email}}</h5>
-        <div>
-          <button mat-raised-button (click)="updateTrainee()">Edit profile</button>&nbsp;&nbsp;
-          <button mat-raised-button (click)="updatePassword()">Change Password</button><br><br>
-        </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="student-details">
+    <h1>Trainee Details</h1>
+    <div class="profile-info">
+      <div class="profile-pair">
+        <span class="profile-key">First Name:</span>
+        <span class="profile-value">{{ traineeProfile.firstName }}</span>
+      </div>
+      <div class="profile-pair">
+        <span class="profile-key">Last Name:</span>
+        <span class="profile-value">{{ traineeProfile.lastName }}</span>
+      </div>
+      <div class="profile-pair">
+        <span class="profile-key">User Name:</span>
+        <span class="profile-value">{{ traineeProfile.userName }}</span>
+      </div>
+      <div class="profile-pair">
+        <span class="profile-key">Date of Birth:</span>
+        <span class="profile-value">{{ traineeProfile.dateOfBirth | date }}</span>
+      </div>
+      <div class="profile-pair">
+        <span class="profile-key">Address:</span>
+        <span class="profile-value">{{ traineeProfile.address }}</span>
+      </div>
+      <div class="profile-pair">
+        <span class="profile-key">Email:</span>
+        <span class="profile-value">{{ traineeProfile.email }}</span>
       </div>
     </div>
-    <div class="my-trainees">
-      <div class="my-trainees-header">
-        <h2>My Trainers</h2>
-        <button mat-raised-button color="primary" (click)="editTrainers()">Add Trainer</button>
-      </div>
-      <div class="trainers-table">
-        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-          <!-- Position Column -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-          </ng-container>
-
-          <!-- Name Column -->
-          <ng-container matColumnDef="specialization">
-            <mat-header-cell *matHeaderCellDef> Specialization</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.specialization}} </mat-cell>
-          </ng-container>
-
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </mat-table>
-      </div>
+    <div class="profile-actions">
+      <button mat-raised-button class="custom-button" (click)="updateTrainee()">Edit profile</button> &nbsp;&nbsp;
+      <button mat-raised-button class="custom-button" (click)="updatePassword()">Change Password</button>
     </div>
+  </div>
+  
 
-
-</div>
+  <div class="my-trainees">
+    <div class="card-header">
+      <h2>My Trainers</h2>
+    </div>
+    <div class="trainers-table">
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="specialization">
+          <mat-header-cell *matHeaderCellDef> Specialization</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.specialization}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+    <div class="profile-actions">
+      <button mat-raised-button class="custom-button" (click)="editTrainers()">Add Trainer</button>
+    </div>
+  </div>
 </div>

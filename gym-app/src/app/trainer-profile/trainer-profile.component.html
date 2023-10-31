@@ -1,6 +1,6 @@
 <div class="container">
   <div class="header">
-    <mat-toolbar>
+    <mat-toolbar class="custom-toolbar" routerLink="/" routerLinkActive="active">
       <button mat-icon-button class="example-icon">
         <mat-icon>fitbit</mat-icon>
       </button>
@@ -15,36 +15,33 @@
     <router-outlet></router-outlet>
   </div>
 
-  <div class="center-content">
-    <div class="Trainer Profile">
-      <h4>Trainer Profile</h4>
-      <div class="pfp-status">
-        <div class="student-status">
-          <h4>Status</h4>
-          <div *ngIf="trainerProfile.status; then active else inactive"></div>
-          <ng-template #active>
-            <h5 style="color: green;">Active</h5>
-          </ng-template>
-          <ng-template #inactive>
-            <h5 style="color: red;">InActive</h5>
-          </ng-template>
+    <div class="trainer-profile">
+      <h1>Trainer Details</h1>
+      <div class="profile-info">
+        <div class="profile-pair">
+          <span class="profile-key">First Name:</span>
+          <span class="profile-value">{{ trainerProfile.firstName }}</span>
+        </div>
+        <div class="profile-pair">
+          <span class="profile-key">Last Name:</span>
+          <span class="profile-value">{{ trainerProfile.lastName }}</span>
+        </div>
+        <div class="profile-pair">
+          <span class="profile-key">User Name:</span>
+          <span class="profile-value">{{ trainerProfile.userName }}</span>
+        </div>
+        <div class="profile-pair">
+          <span class="profile-key">Specialization:</span>
+          <span class="profile-value">{{ trainerProfile.specialization }}</span>
+        </div>
+        <div class="profile-pair">
+          <span class="profile-key">Email:</span>
+          <span class="profile-value">{{ trainerProfile.email }}</span>
         </div>
       </div>
-      <div class="student-details">
-        <h3>First Name</h3>
-        <h5>{{trainerProfile.firstName}}</h5>
-        <h3>Last Name</h3>
-        <h5>{{trainerProfile.lastName}}</h5>
-        <h3>User Name</h3>
-        <h5>{{trainerProfile.userName}}</h5>
-        <h3>Specialization</h3>
-        <h5>{{trainerProfile.specialization}}</h5>
-        <h3>Email</h3>
-        <h5>{{trainerProfile.email}}</h5>
-        <div>
-          <button mat-raised-button color="primary" (click)="updateTrainer()">Edit profile</button>&nbsp;&nbsp;
-          <button mat-raised-button color="accent" (click)="updatePassword()">Change Password</button>
-        </div>
+      <div class="profile-actions">
+        <button mat-raised-button class="custom-button" (click)="updateTrainer()">Edit profile</button>&nbsp;&nbsp;
+        <button mat-raised-button class="custom-button" (click)="updatePassword()">Change Password</button>
       </div>
     </div>
 
@@ -60,18 +57,19 @@
             <mat-cell *matCellDef="let i = index" class="custom-cell"> {{ i + 1 }} </mat-cell>
           </ng-container>
 
-          <!-- Position Column -->
+          <!-- Username Column -->
           <ng-container matColumnDef="username">
             <mat-header-cell *matHeaderCellDef class="custom-header-cell"> Username </mat-header-cell>
             <mat-cell *matCellDef="let element" class="custom-cell"> {{ element.username }} </mat-cell>
           </ng-container>
 
-          <!-- Name Column -->
+          <!-- Firstname Column -->
           <ng-container matColumnDef="firstname">
             <mat-header-cell *matHeaderCellDef class="custom-header-cell"> Firstname </mat-header-cell>
             <mat-cell *matCellDef="let element" class="custom-cell"> {{ element.firstname }} </mat-cell>
           </ng-container>
 
+          <!-- Lastname Column -->
           <ng-container matColumnDef="lastname">
             <mat-header-cell *matHeaderCellDef class="custom-header-cell"> Lastname </mat-header-cell>
             <mat-cell *matCellDef="let element" class="custom-cell"> {{ element.lastname }} </mat-cell>
@@ -83,4 +81,3 @@
       </div>
     </div>
   </div>
-</div>
