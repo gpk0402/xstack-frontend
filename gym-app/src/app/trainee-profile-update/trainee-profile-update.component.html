@@ -1,11 +1,13 @@
 <div class="container">
   <div class="header1">
-    <mat-toolbar>
+    <mat-toolbar class="custom-toolbar">
+      <div class="menu-items">
       <button mat-icon-button class="example-icon" (click)="backToProfile()">
-        <mat-icon>arrow_back</mat-icon>
+        <mat-icon class="back-icon">keyboard_backspace</mat-icon>
       </button>
       <span>My Profile</span>
       <span class="spacer"></span>
+      </div>
       <!-- <span>{{traineeProfile.userName}}</span> -->
     </mat-toolbar>
     <router-outlet></router-outlet>

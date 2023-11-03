@@ -12,15 +12,15 @@
 
   <div class="center-content">
     <div class="header1">
-      <h1>Training Registration</h1>
-      <h3>{{trainerProfile.userName}}</h3>
+      <h1>Add Training</h1>
+      <!-- <h3>{{trainerProfile.userName}}</h3> -->
     </div>
 
     <div class="add-training">
       <form [formGroup]="trainingForm" (ngSubmit)="onSubmit()">
-        <mat-form-field>
+        <mat-form-field floatLabel="always">
           <mat-label>Select one Trainee</mat-label>
-          <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
+          <mat-icon matPrefix class="my-icon">account_circle</mat-icon>
           <mat-select formControlName="traineeUsername">
             <mat-option *ngFor="let trainee of trainerProfile.traineesList" [value]="trainee.userName">
               {{ trainee.userName }}
@@ -28,7 +28,7 @@
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
+          <mat-icon matPrefix class="my-icon">account_circle</mat-icon>
           <mat-label>Training Name</mat-label>
           <input matInput type="text" name="trainingName" formControlName="trainingName">
         </mat-form-field>
@@ -45,7 +45,7 @@
         </mat-form-field>
         <mat-form-field>
           <mat-icon matPrefix class="my-icon">access_time</mat-icon>
-          <mat-label>Duration</mat-label>
+          <mat-label>duration</mat-label>
           <input matInput type="text" name="duration" formControlName="duration">
         </mat-form-field>
         <button mat-raised-button type="submit">Submit</button>

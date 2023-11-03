@@ -23,6 +23,10 @@ mat-toolbar {
   color: #060606;
 }
 
+mat-cell {
+  align-items: center;
+}
+
 .profile-card {
   background-color: white;
   border: 1px solid #ccc;
@@ -109,9 +113,12 @@ mat-toolbar {
   max-width: 150px;
 }
 
-.center-content {
-  display: flex;
+.trainer-profile,.my-trainers{
+  padding-top: 20px;
+  padding-bottom: 50px;
+display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -120,7 +127,7 @@ mat-toolbar {
 }
 
 .trainers-table {
-  width: 150%; /* Increase the width as needed */
+  width: 40%; /* Increase the width as needed */
   padding: 20px;
   display: flex;
   flex-direction: column;

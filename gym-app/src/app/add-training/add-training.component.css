@@ -63,10 +63,20 @@ h3 {
 }
 
 mat-form-field {
-  font-size: 14px;
-  height: 60px;
+  font-size: 17px;
+  height: 70px;
 }
 
 mat-form-field .mat-hint {
   font-size: 18px;
 }
+
+.menu-items button {
+  background-color: #FBFAFA;
+  color: #060606;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+

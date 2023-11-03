@@ -11,14 +11,6 @@ export interface TrainerInfo {
 
 }
 
-const ELEMENT_DATA: TrainerInfo[] = [
-  {name: 'sreeja', specialization: 'angular'},
-  {name: 'siddu', specialization: 'java'},
-  {name: 'lavanya', specialization: 'spring'},
-  {name: 'sasi', specialization: 'typescript'},
-  {name: 'vamsi', specialization: 'angular'},
-
-];
 @Component({
   selector: 'app-trainee-profile',
   templateUrl: './trainee-profile.component.html',
@@ -58,9 +50,9 @@ export class TraineeProfileComponent {
     this.router.navigate(['trainee-update'], { state: { traineeProfile: this.traineeProfile } });
   }
 
-    updatePassword() {
-      this.router.navigate(['update-password'], { state: { userName: this.traineeProfile.userName } });
-    }
+  updatePassword() {
+    this.router.navigate(['update-password'], { state: { userName: this.traineeProfile.userName } });
+  }
 
 
   viewTraining() {

@@ -203,7 +203,7 @@ h3 {
   flex-direction: column;
 }
 
-.trainer-profile,.my-trainers{
+.student-details,.my-trainees{
   padding-top: 20px;
   padding-bottom: 50px;
 display: flex;

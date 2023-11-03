@@ -24,7 +24,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-slide-toggle class="toggle" formControlName="traineeToggle"></mat-slide-toggle>&nbsp;&nbsp;&nbsp;
+      <!-- <mat-slide-toggle class="toggle" formControlName="traineeToggle"></mat-slide-toggle>&nbsp;&nbsp;&nbsp; -->
 
 
       <mat-form-field>
@@ -37,10 +37,11 @@
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
-      <mat-slide-toggle class="toggle" formControlName="dateToggle"></mat-slide-toggle>&nbsp;&nbsp;&nbsp;
+      <!-- <mat-slide-toggle class="toggle" formControlName="dateToggle"></mat-slide-toggle>&nbsp;&nbsp;&nbsp; -->
 
 
       <button mat-raised-button color="primary" type="submit">search</button>
+      <button mat-raised-button color="primary" (click)="resetForm($event)">reset</button>
     </form>
   </div>
 

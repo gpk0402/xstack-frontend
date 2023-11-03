@@ -6,6 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TrainerService} from "../../service/trainer.service";
 import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
+import { SnackBarService } from 'src/service/snack-bar.service';
 interface Specialization {
   value: string;
   viewValue: string;
@@ -25,8 +26,7 @@ export class TrainerRegistrationComponent {
     {value: 'resistance', viewValue: 'resistance'},
   ];
   registrationForm: any;
-
-  constructor(private trainerService:TrainerService,private router:Router,public dialog: MatDialog) {
+  constructor(private trainerService:TrainerService,private router:Router,public dialog: MatDialog, private snackBar: SnackBarService) {
     this.registrationForm = new FormGroup({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -35,6 +35,10 @@ export class TrainerRegistrationComponent {
     });
   }
   onSubmit() {
+    if(!this.isValidEmailFormat(this.registrationForm.get('email').value)){
+      this.snackBar.openSnackBar("Invalid email format");
+      return;
+    }
     this.trainer.firstName=this.registrationForm.value.firstName;
     this.trainer.lastName=this.registrationForm.value.lastName;
     this.trainer.specialization=this.registrationForm.value.specialization;
@@ -43,8 +47,13 @@ export class TrainerRegistrationComponent {
     this.trainerService.saveTrainer(this.trainer).subscribe(data=>{
       console.log(data);
       this.dialog.open(DialogBoxComponent, {
-        data: {username: data.username, password: data.password}
+        data: {username: data.username, password: data.password,userType: "trainer"}
       });
     })
+  }
+
+  isValidEmailFormat(email: string) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
   }
 }

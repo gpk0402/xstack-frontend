@@ -1,20 +1,22 @@
 <div class="container">
   <div class="header1">
-    <mat-toolbar>
+    <mat-toolbar class="custom-toolbar">
+      <div class="menu-items">
       <button mat-icon-button class="example-icon" (click)="backToProfile()">
         <mat-icon>arrow_back</mat-icon>
       </button>
-      <span>Back to Profile</span>
+      <span class="spacer">My Profile</span>
       <span class="spacer"></span>
-      <span>{{trainer.userName}}</span>
+    </div>
+      <!-- <span>{{trainerProfile.userName}}</span> -->
     </mat-toolbar>
     <router-outlet></router-outlet>
   </div>
   <div class="body">
     <div class="center-content">
       <div class="header">
-        <h1>Trainer Updation</h1>
-        <h3>{{trainer.userName}}</h3>
+        <h1>Edit Details</h1>
+        <!-- <h3>{{trainer.userName}}</h3> -->
       </div>
       <div class="registration-form">
         <form (ngSubmit)="onSubmit()">

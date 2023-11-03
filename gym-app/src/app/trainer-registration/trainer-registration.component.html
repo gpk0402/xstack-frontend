@@ -30,7 +30,7 @@
           <mat-label>Enter Email</mat-label>
           <input matInput formControlName="email" id="email" name="email">
         </mat-form-field>
-        <button mat-raised-button type="submit">Submit</button>
+        <button mat-raised-button type="submit" [disabled]="!registrationForm.valid">Submit</button>
       </form>
     </div>
   </div>

@@ -52,7 +52,7 @@ export class PasswordUpdateComponent {
 
 
     this.signinService.updateCredentials(updatePassword).subscribe(data => {
-      this.snackBar.openSnackBar("Password updated succesfully, Please log-in again", 1500);
+      this.snackBar.openSnackBar("Password updated succesfully, Please log-in again", 10000);
       this.router.navigate(['signIn']);
     });
           // },error => {

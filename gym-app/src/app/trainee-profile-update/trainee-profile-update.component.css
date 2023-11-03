@@ -16,6 +16,22 @@
   margin-left: 10px;
 }
 
+.custom-toolbar {
+  background-color: #7db9b5;
+  color: #060606;
+}
+
+.menu-items button {
+  background-color: #FBFAFA;
+  color: #060606;
+}
+
+.back-icon {
+  color: #060606
+
+}
+
+
 .center-content {
   display: flex;
   flex-direction: column;

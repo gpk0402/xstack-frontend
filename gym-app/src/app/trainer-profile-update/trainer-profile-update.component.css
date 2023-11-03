@@ -1,8 +1,7 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
   }
   
   .header1 {
@@ -15,6 +14,16 @@
   
   .header1 .example-icon {
     margin-left: 10px;
+  }
+
+  .custom-toolbar {
+    background-color: #7db9b5;
+    color: #060606;
+  }
+  
+  .menu-items button {
+    background-color: #FBFAFA;
+    color: #060606;
   }
   
   .header {
@@ -67,18 +76,18 @@
     background-color: #7db9b5;
     color: black;
     margin-top: 20px;
-    width: 100%; /* Expand to fill available horizontal space */
+    width: 100%;
   }
   
   /* Decrease the font size inside mat-form-field */
   mat-form-field {
-    font-size: 14px; /* Adjust the font size as needed */
+    font-size: 14px;
     height: 60px;
   }
   
   /* Decrease the font size of the hint text inside mat-form-field */
   mat-form-field .mat-hint {
-    font-size: 18px; /* Adjust the font size of the hint text as needed */
+    font-size: 18px
   }
   
   mat-slide-toggle {

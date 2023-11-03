@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {SigninService} from "../../service/signin.service";
 import {CredentialsDto} from "../model/CredentialsDto";
@@ -8,6 +8,8 @@ import {TraineeProfileDto} from "../model/TraineeProfileDto";
 import {TrainerProfileDto} from "../model/TrainerProfileDto";
 import {Router} from "@angular/router";
 import {SnackBarService} from "../../service/snack-bar.service";
+import { SharedLoginService } from 'src/service/shared-login.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 
 @Component({
@@ -18,21 +20,50 @@ import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 export class SignInComponent {
   credentials:CredentialsDto=new CredentialsDto();
   loginForm:any
-  selectedUserType: string = 'trainee';
+  selectedUserType: string = "";
 
 
 
-  constructor(private router:Router,private snackbarService: SnackBarService,private signInService:SigninService,private traineeService:TraineeService,private trainerService:TrainerService) {
+  constructor(private router:Router,private snackbarService: SnackBarService,private signInService:SigninService,private traineeService:TraineeService,private trainerService:TrainerService, private sharedLogin: SharedLoginService) {
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+    
   }
+
   onSubmit() {
+    if(this.loginForm.value.username && this.loginForm.value.password){
+      console.log("assigned via submit form");
     this.credentials.username=this.loginForm.value.username;
     this.credentials.password=this.loginForm.value.password;
+    }
+    else if(this.sharedLogin.userData$){
+      this.sharedLogin.userData$.subscribe((userData) =>{
+        if(userData){
+          console.log("assigned via sharedLogin"+ userData);
+        this.credentials.username = userData.username;
+        this.credentials.password = userData.password;
+        this.selectedUserType = userData.userType;
+        }
+      });
+    }
+    // const isLoginFormEmpty = !this.credentials.username || !this.credentials.password;
+    // this.credentials.username === "" || this.credentials.password === ""
+    // if(isLoginFormEmpty){
+      // this.sharedLogin.userData$.subscribe((userData) => {
+      //   if (userData) {
+      //     this.credentials.username = userData.username;
+      //     this.credentials.password = userData.password;
+      //     this.selectedUserType = userData.userType;
+      //   }
+      // });
+    // }
+    if(this.selectedUserType === ""){
+      console.log("data invalid");
+      return;
+    }
     this.signInService.userAuthentication(this.credentials).subscribe(data=>{
-      console.log(data);
         if(this.selectedUserType=='trainer')
         {
           this.trainerService.getTrainerProfile(this.credentials.username).subscribe(data=>{
@@ -56,9 +87,6 @@ export class SignInComponent {
       },error => {
       this.snackbarService.openSnackBar(`Enter Valid Username and Password`);
     });
-
-
-
 
   }
 }

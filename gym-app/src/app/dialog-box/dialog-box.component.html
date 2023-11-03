@@ -1,10 +1,12 @@
 <h1 mat-dialog-title class="success-title">Account Created Successfully!</h1>
 <div mat-dialog-content>
+    Please note down username and password
     <div class="info-label">Username:</div> {{username}}
     <br>
     <div class="info-label">Password:</div> {{password}}
     <br>
 </div>
 <div mat-dialog-actions class="dialog-actions">
-    <button mat-button class="close-button" color="primary" mat-dialog-close routerLink="/signIn">Close</button>
+    <!-- <button mat-button class="close-button" color="primary" mat-dialog-close routerLink="/signIn">Close</button> -->
+    <button mat-button class="close-button" color="primary" mat-dialog-close (click)="redirectToLogin()" >Close</button>
 </div>

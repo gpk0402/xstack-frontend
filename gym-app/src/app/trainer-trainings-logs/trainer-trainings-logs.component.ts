@@ -22,37 +22,15 @@ export class TrainerTrainingsLogsComponent {
   traineeList: TraineeDetailsDto[] = [];
 
   constructor(private router: Router,private trainerService:TrainerService,private fb: FormBuilder) {
-    this.trainerTrainingsForm = new FormGroup(
-      {
-        traineeName: new FormControl(''),
-        traineeToggle: new FormControl(false),
-
-        range: new FormGroup({
-          start: new FormControl<Date | null>({value: null, disabled: true}),
-          end: new FormControl<Date | null>({value: null, disabled: true}),
-        }), // Set the initial disabled state
-        dateToggle: new FormControl(false)
-      }
-    );
-
-
-    this.trainerTrainingsForm.get('traineeToggle')?.valueChanges.subscribe((value: any) => {
-      if (value) {
-        this.trainerTrainingsForm.get('traineeName')?.enable();
-
-      } else {
-        this.trainerTrainingsForm.get('traineeName')?.disable();
-      }
+    this.trainerTrainingsForm = this.fb.group({
+      traineeName: [null],
+      range: this.fb.group({
+        start: [null],
+        end: [null],
+      }),
     });
-    this.trainerTrainingsForm.get('dateToggle')?.valueChanges.subscribe((value: any) => {
-      if (value) {
-        this.trainerTrainingsForm.get('range')?.enable();
-      } else {
-        this.trainerTrainingsForm.get('range')?.disable();
-      }
-    });
-
   }
+
   ngOnInit() {
     const state = window.history.state;
     if (state && state.trainerProfile) {
@@ -66,21 +44,19 @@ export class TrainerTrainingsLogsComponent {
     this.trainerTrainingsList = new TrainerTrainingsRequestList();
     this.trainerTrainingsList.username=this.trainerProfile.userName;
 
-    if(this.trainerTrainingsForm.value.traineeToggle){
+    if(this.trainerTrainingsForm.value.traineeName){
 
       this.trainerTrainingsList.traineeName=this.trainerTrainingsForm.value.traineeName
     }
 
-    if(this.trainerTrainingsForm.value.dateToggle){
-      const startDate = this.trainerTrainingsForm.get('range.start')?.value;
-      const endDate = this.trainerTrainingsForm.get('range.end')?.value;
-      if (startDate && endDate) {
-        const formattedStartDate = formatDate(startDate, 'yyyy-MM-dd', 'en');
-        const formattedEndDate = formatDate(endDate, 'yyyy-MM-dd', 'en');
-        this.trainerTrainingsList.periodFrom = formattedStartDate;
-        this.trainerTrainingsList.periodTo = formattedEndDate;
-      }
+    const startDate = this.trainerTrainingsForm.get('range.start')?.value;
+    const endDate = this.trainerTrainingsForm.get('range.end')?.value;
 
+    if (startDate && endDate) {
+      const formattedStartDate = formatDate(startDate, 'yyyy-MM-dd', 'en');
+      const formattedEndDate = formatDate(endDate, 'yyyy-MM-dd', 'en');
+      this.trainerTrainingsList.periodFrom = formattedStartDate;
+      this.trainerTrainingsList.periodTo = formattedEndDate;
     }
 
 
@@ -100,5 +76,10 @@ export class TrainerTrainingsLogsComponent {
 
   backToProfile() {
     this.router.navigate(['trainer-profile'], { state: { trainerProfile: this.trainerProfile } });
+  }
+
+  resetForm(event: Event) {
+    event.preventDefault();
+    this.trainerTrainingsForm.reset();
   }
 }

@@ -2,19 +2,13 @@ import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {TrainerProfileDto} from "../model/TrainerProfileDto";
 import {TrainerService} from "../../service/trainer.service";
+
 export interface TrainerInfo {
   username: string;
   firstname: string;
   lastname: string;
-
-
 }
 
-const ELEMENT_DATA: TrainerInfo[] = [
-  {username: 'sreeja2401', firstname: 'sreeja', lastname: 'mangarapu'},
-  {username: 'siddu2401', firstname: 'siddu', lastname: 'mangarapu'},
-  {username: 'lavs2401', firstname: 'lavanya', lastname: 'mangarapu'},
-];
 @Component({
   selector: 'app-trainer-profile',
   templateUrl: './trainer-profile.component.html',
@@ -32,7 +26,7 @@ export class TrainerProfileComponent {
   ngOnInit() {
     const state = window.history.state;
     this.trainerProfile = state.trainerProfile;
-    console.log("we are inside my profile component " + this.trainerProfile);
+    console.log(this.trainerProfile);
     if (this.trainerProfile.traineesList) {
       for (const trainee of this.trainerProfile.traineesList) {
         if (trainee.firstName && trainee.userName && trainee.lastName) {
@@ -50,10 +44,10 @@ export class TrainerProfileComponent {
       this.router.navigate(['trainer-update'], { state: { trainerProfile: this.trainerProfile } });
     }
 
-  updatePassword() {
-    console.log("we are inside update password component " + this.trainerProfile);
-    this.router.navigate(['update-password'], { state: { username: this.trainerProfile.userName } });
-  }
+    updatePassword() {
+      this.router.navigate(['update-password'], { state: { userName: this.trainerProfile.userName } });
+    }
+
 
   addTraining() {
     this.router.navigate(['addTraining'], { state: { trainerProfile: this.trainerProfile } });
